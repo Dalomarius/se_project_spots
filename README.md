@@ -14,9 +14,6 @@ This project is made so all the elements are displayed correctly on popular scre
 
 - [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
   Figma is such helpful tool when designing a web page. It allows you to gather all the details of the webpage you want to design, like font sizes and distances between webpage content. Basically any detail needed to make your web page fir the design to the Tee.
-  **Images**  
+  **Images**
 
-
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
-
-Good luck and have fun!
+This project is deployed through Git hub. Link https://dalomarius.github.io/se_project_spots/index.html
