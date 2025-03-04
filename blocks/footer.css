@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__content {
+}
+
+.footer__copyright {
+  margin: 0 0 60px;
+  width: 104px;
+  height: 16px;
+  opacity: 70%;
+  font-size: 16px;
+}
