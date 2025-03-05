@@ -1,12 +1,19 @@
-.card {
-}
-
 .card__image {
   height: 413px;
   width: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 10px;
+  border-radius: 8px;
+}
+
+.card__title {
+  height: 24px;
+  font-size: 20px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 354px;
 }
 
 .card__like-btn {
@@ -16,6 +23,10 @@
   opacity: 40%;
   border: none;
   background-color: transparent;
+}
+
+.card__like-btn:hover {
+  cursor: pointer;
 }
 
 .card__content {

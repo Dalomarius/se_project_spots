@@ -3,13 +3,12 @@
   justify-content: center;
 }
 
-.footer__content {
-}
-
 .footer__copyright {
   margin: 0 0 60px;
-  width: 104px;
-  height: 16px;
   opacity: 70%;
   font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #212121;
+  padding-top: 60px;
 }
