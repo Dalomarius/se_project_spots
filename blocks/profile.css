@@ -24,6 +24,7 @@
 
 .profile__add-btn:hover {
   cursor: pointer;
+  opacity: 80%;
 }
 
 .profile__avatar {
@@ -47,11 +48,14 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
+  border-radius: 90px;
   opacity: 70%;
 }
 
-.profile__edit-btn {
+.profile__edit-btn:hover {
   cursor: pointer;
+  font-weight: 500;
+  opacity: 1;
 }
 
 .profile__name {
@@ -63,7 +67,6 @@
   color: #212121;
   text-overflow: ellipsis;
   overflow: hidden;
-  line-clamp: 3;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -78,7 +81,6 @@
   color: #212121;
   text-overflow: ellipsis;
   overflow: hidden;
-  line-clamp: 3;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
