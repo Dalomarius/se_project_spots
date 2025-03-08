@@ -17,3 +17,4 @@ This project is made so all the elements are displayed correctly on popular scre
   **Images**
 
 This project is deployed through Git hub. Link https://dalomarius.github.io/se_project_spots/index.html
+Video of description Take 1 https://drive.google.com/file/d/1F_pjyuvq0KizySX2tQstI3luxPhwCBgn/view?usp=sharing
