@@ -6,6 +6,7 @@
 
 .profile__add-btn {
   margin-left: auto;
+  font-weight: 500;
   font-family: inherit;
   font-size: 16px;
   line-height: 16px;
@@ -54,7 +55,6 @@
 
 .profile__edit-btn:hover {
   cursor: pointer;
-  font-weight: 500;
   opacity: 1;
 }
 
@@ -103,6 +103,7 @@
   }
   .profile__add-btn {
     margin: 0;
+    width: 100%;
   }
   .profile__description {
     margin: 0 0 32px;
