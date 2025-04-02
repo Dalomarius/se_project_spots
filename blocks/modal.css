@@ -26,6 +26,7 @@
   box-sizing: border-box;
   overflow: hidden;
   gap: 32px;
+  border-radius: 8px;
 }
 
 .modal__close-btn {
