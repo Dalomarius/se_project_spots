@@ -75,7 +75,7 @@ function getCardElement(data) {
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-button");
   cardDeleteBtnEl.addEventListener("click", () => {
     cardElement.remove();
-    cardElement = Null;
+    cardElement = null;
   });
 
   cardImageEl.addEventListener("click", () => {
@@ -124,14 +124,17 @@ newPostButton.addEventListener("click", () => {
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
-  const imageLink = newPostImageInput.value;
-  const caption = newPostCaptionInput.value;
-  console.log({ imageLink, caption });
+  const link = newPostImageInput.value;
+  const name = newPostCaptionInput.value;
+  console.log({ name, link });
+  //create the card based on what the user has typed into those inputs (ie: call getCardElement)
+  const cardElement = getCardElement({ name, link });
+  //place that card element on the dom
+  cardsList.prepend(cardElement);
   closeModal(newPostModal);
 }
 
 newPostFormEl.addEventListener("submit", handleNewPostSubmit);
-// create a submit event listener for new post form element
 // declare handle new post form submit
 // console.log(new post image input value, new post caption input value)
 

@@ -22,11 +22,11 @@
   background-image: url(../images/Delete.svg);
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .card__delete-button:hover {
   background-image: url(../images/HoverDelete.svg);
-  cursor: pointer;
 }
 
 .card__title {

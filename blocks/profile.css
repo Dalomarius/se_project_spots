@@ -21,10 +21,10 @@
   align-items: center;
   gap: 8px;
   border: none;
+  cursor: pointer;
 }
 
 .profile__add-btn:hover {
-  cursor: pointer;
   opacity: 80%;
 }
 
@@ -51,10 +51,10 @@
   line-height: 16px;
   border-radius: 90px;
   opacity: 70%;
+  cursor: pointer;
 }
 
 .profile__edit-btn:hover {
-  cursor: pointer;
   opacity: 1;
 }
 
@@ -70,6 +70,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  line-clamp: 3;
 }
 
 .profile__description {
@@ -84,6 +85,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  line-clamp: 3;
   max-width: 420px;
 }
 
