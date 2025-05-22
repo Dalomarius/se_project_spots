@@ -12,7 +12,7 @@
   visibility: hidden;
   padding: 0px 0px;
   transition: visibility 0.3s;
-  transition: opacity 0.3s;
+  opacity: 0.3s;
 }
 
 .modal_type_preview {
@@ -22,6 +22,8 @@
 .modal_is-opened {
   visibility: visible;
   opacity: 1;
+  transition: visibility 0.3s;
+  opacity: 0.3s;
 }
 
 .modal__container {
@@ -123,7 +125,7 @@
 .modal__submit-btn:hover {
   cursor: pointer;
   opacity: 0.8;
-  background: rgba(0, 0, 0, 0.8)
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .modal__input {
