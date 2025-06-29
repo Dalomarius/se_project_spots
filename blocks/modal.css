@@ -127,15 +127,30 @@
 }
 
 .modal__input {
+  width: 100%;
+  box-sizing: border-box;
   padding: 16px 12px;
   border-radius: 8px;
-  border-width: 1px;
-  border-color: rgba(33, 33, 33, 0.4);
+  border: 1px solid rgba(33, 33, 33, 0.4);
+  font-size: 20px;
+  line-height: 1;
+  margin: 8px 0 0;
+  color: #212121;
+}
+
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
 }
 
 .modal__input:hover {
   cursor: pointer;
   border: 1px solid rgba(33, 33, 33, 1);
+}
+
+.modal__error {
+  display: block;
+  margin-top: 8px;
+  color: red;
 }
 
 @media screen and (max-width: 480px) {
