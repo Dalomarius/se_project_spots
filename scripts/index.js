@@ -29,6 +29,10 @@ const initialCards = [
   },
 ];
 
+/* -------------------------------------------------------------------------- */
+/*                                  elements                                  */
+/* -------------------------------------------------------------------------- */
+
 const profileEditBtn = document.querySelector(".profile__edit-btn");
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
@@ -45,6 +49,7 @@ const newPostModal = document.querySelector("#new-post");
 const newPostButton = document.querySelector(".profile__add-btn");
 const newPostCloseButton = newPostModal.querySelector(".modal__close-btn");
 const newPostFormEl = newPostModal.querySelector(".modal__form");
+const newPostSubmitBtn = newPostModal.querySelector(".modal__submit-btn");
 const newPostImageInput = newPostModal.querySelector("#card-image-input");
 const newPostCaptionInput = newPostModal.querySelector("#card-caption-input");
 
@@ -57,7 +62,9 @@ const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
 const cardsList = document.querySelector(".cards__list");
-
+/* -------------------------------------------------------------------------- */
+/*                              Function Section                              */
+/* -------------------------------------------------------------------------- */
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardTitleEl = cardElement.querySelector(".card__title");
@@ -88,12 +95,33 @@ function getCardElement(data) {
   return cardElement;
 }
 
+function modalOverlayClose(evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.target);
+  }
+}
+
+function handleEscapeClose(evt) {
+  if (evt.key === "Escape" || evt.key === "Esc") {
+    const activeModal = document.querySelector(".modal_is-opened");
+    if (activeModal) {
+      closeModal(activeModal);
+    }
+  }
+}
+
+document.addEventListener("keydown", handleEscapeClose);
+
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  modal.addEventListener("mousedown", modalOverlayClose);
+  modal.addEventListener("keydown", handleEscapeClose);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  modal.removeEventListener("mousedown", modalOverlayClose);
+  modal.removeEventListener("keydown", handleEscapeClose);
 }
 
 function handleEditFormSubmit(evt) {
@@ -103,9 +131,25 @@ function handleEditFormSubmit(evt) {
   closeModal(editModal);
 }
 
+function handleNewPostSubmit(evt) {
+  evt.preventDefault();
+  const link = newPostImageInput.value;
+  const name = newPostCaptionInput.value;
+  console.log({ name, link });
+  const cardElement = getCardElement({ name, link });
+  cardsList.prepend(cardElement);
+  newPostFormEl.reset();
+  disableButton(newPostSubmitBtn);
+  closeModal(newPostModal);
+}
+
 profileEditBtn.addEventListener("click", function () {
   editModalProfileDescription.value = profileDescription.textContent;
   editModalNameInput.value = profileNameEl.textContent;
+  resetValidation(editFormElement, [
+    editModalProfileDescription,
+    editModalNameInput,
+  ]);
   openModal(editModal);
 });
 editModalCloseBtn.addEventListener("click", () => {
@@ -120,19 +164,6 @@ editFormElement.addEventListener("submit", handleEditFormSubmit);
 newPostButton.addEventListener("click", () => {
   openModal(newPostModal);
 });
-
-function handleNewPostSubmit(evt) {
-  evt.preventDefault();
-  const link = newPostImageInput.value;
-  const name = newPostCaptionInput.value;
-  console.log({ name, link });
-  //create the card based on what the user has typed into those inputs (ie: call getCardElement)
-  const cardElement = getCardElement({ name, link });
-  //place that card element on the dom
-  cardsList.prepend(cardElement);
-  closeModal(newPostModal);
-  newPostFormEl.reset();
-}
 
 newPostFormEl.addEventListener("submit", handleNewPostSubmit);
 // declare handle new post form submit

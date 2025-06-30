@@ -20,22 +20,37 @@ const checkInputValidity = (formEl, inputEl) => {
 
 const hasInvalidInput = (inputList) => {
   return inputList.some((input) => {
-    return !input.validty.valid;
+    return !input.validity.valid;
   });
 };
 
 const toggleButtonState = (inputList, buttonEl) => {
   if (hasInvalidInput(inputList)) {
-    buttonEl.disabled = true;
+    disableButton(buttonEl);
+  } else {
+    buttonEl.disabled = false;
+    //buttonEl.classList.remove("modal_button-disabled");
+    //TODO - remove the disabled class
   }
 };
 
-setEventListeners = (formEl ) => {
+const disableButton = (buttonEl) => {
+  buttonEl.disabled = true;
+  buttonEl.classList.add("modal_button-disabled");
+  // Make CSS design FIGMA
+};
+
+const resetValidation = (formEl, inputList) => {
+  inputList.forEach((input) => {
+    hideInputError(formEl, input);
+  });
+};
+
+setEventListeners = (formEl) => {
   const inputList = Array.from(formEl.querySelectorAll(".modal__input"));
   const buttonElement = formEl.querySelector(".modal__submit-btn");
 
-  // TODO - handle initial states
-  //toggleButtonState(inputList, buttonElement);
+  toggleButtonState(inputList, buttonElement);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {

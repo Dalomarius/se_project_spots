@@ -126,6 +126,11 @@
   background: rgba(0, 0, 0, 0.8);
 }
 
+.modal_button-disabled:disabled {
+  background-color: #ccc;
+  color: #666;
+}
+
 .modal__input {
   width: 100%;
   box-sizing: border-box;
