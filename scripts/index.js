@@ -38,7 +38,7 @@ const profileNameEl = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
 const editModal = document.querySelector("#edit-modal");
-const editFormElement = editModal.querySelector(".modal__form");
+const editFormElement = document.forms["edit-profile"];
 const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalProfileDescription = editModal.querySelector(
@@ -87,7 +87,7 @@ function getCardElement(data) {
   cardImageEl.addEventListener("click", () => {
     previewImageEl.src = data.link;
     previewImageEl.alt = data.name;
-    previewModalCaptionEl.innerHTML = data.name;
+    previewModalCaptionEl.textContent = data.name;
 
     openModal(previewModal);
   });
@@ -110,18 +110,16 @@ function handleEscapeClose(evt) {
   }
 }
 
-document.addEventListener("keydown", handleEscapeClose);
-
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
   modal.addEventListener("mousedown", modalOverlayClose);
-  modal.addEventListener("keydown", handleEscapeClose);
+  document.addEventListener("keydown", handleEscapeClose);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
   modal.removeEventListener("mousedown", modalOverlayClose);
-  modal.removeEventListener("keydown", handleEscapeClose);
+  document.removeEventListener("keydown", handleEscapeClose);
 }
 
 function handleEditFormSubmit(evt) {
@@ -135,7 +133,6 @@ function handleNewPostSubmit(evt) {
   evt.preventDefault();
   const link = newPostImageInput.value;
   const name = newPostCaptionInput.value;
-  console.log({ name, link });
   const cardElement = getCardElement({ name, link });
   cardsList.prepend(cardElement);
   newPostFormEl.reset();
@@ -166,8 +163,6 @@ newPostButton.addEventListener("click", () => {
 });
 
 newPostFormEl.addEventListener("submit", handleNewPostSubmit);
-// declare handle new post form submit
-// console.log(new post image input value, new post caption input value)
 
 newPostCloseButton.addEventListener("click", () => {
   closeModal(newPostModal);

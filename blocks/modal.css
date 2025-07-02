@@ -126,9 +126,10 @@
   background: rgba(0, 0, 0, 0.8);
 }
 
-.modal_button-disabled:disabled {
+.modal__submit-btn_disabled:disabled {
   background-color: #ccc;
   color: #666;
+  pointer-events: none;
 }
 
 .modal__input {

@@ -29,15 +29,13 @@ const toggleButtonState = (inputList, buttonEl) => {
     disableButton(buttonEl);
   } else {
     buttonEl.disabled = false;
-    //buttonEl.classList.remove("modal_button-disabled");
-    //TODO - remove the disabled class
+    buttonEl.classList.remove("modal__submit-btn_disabled");
   }
 };
 
 const disableButton = (buttonEl) => {
   buttonEl.disabled = true;
-  buttonEl.classList.add("modal_button-disabled");
-  // Make CSS design FIGMA
+  buttonEl.classList.add("modal__submit-btn_disabled");
 };
 
 const resetValidation = (formEl, inputList) => {
