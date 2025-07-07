@@ -136,17 +136,18 @@ function handleNewPostSubmit(evt) {
   const cardElement = getCardElement({ name, link });
   cardsList.prepend(cardElement);
   newPostFormEl.reset();
-  disableButton(newPostSubmitBtn);
+  disableButton(newPostSubmitBtn, settings);
   closeModal(newPostModal);
 }
 
 profileEditBtn.addEventListener("click", function () {
   editModalProfileDescription.value = profileDescription.textContent;
   editModalNameInput.value = profileNameEl.textContent;
-  resetValidation(editFormElement, [
-    editModalProfileDescription,
-    editModalNameInput,
-  ]);
+  resetValidation(
+    editFormElement,
+    [editModalProfileDescription, editModalNameInput],
+    settings
+  );
   openModal(editModal);
 });
 editModalCloseBtn.addEventListener("click", () => {
